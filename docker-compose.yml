@@ -1,0 +1,10 @@
+services:
+  relay:
+    container_name: ppe-relay
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - "./db:/app/db"
+    ports:
+      - "3456:3456"
