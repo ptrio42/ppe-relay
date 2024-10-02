@@ -35,8 +35,6 @@ var (
 		"wss://nostr.wine",
 		"wss://relay.damus.io",
 		"wss://relay.nostr.band",
-		"wss://purplepag.es",
-		"wss://relay.nostr.land",
 		"wss://relay.primal.net",
 	}
 	botPubkey string
@@ -233,7 +231,7 @@ func PublishCommandResponseEvent(ev *nostr.Event, content string) {
 		Content:   content,
 		Tags:      []nostr.Tag{[]string{"e", ev.ID}, []string{"p", ev.PubKey}},
 	}
-	event.Sign(GetEnv("GM_BOT_PRIVATE_KEY"))
+	event.Sign(GetEnv("BOT_PRIVATE_KEY"))
 
 	ctx := context.Background()
 
